@@ -1,0 +1,26 @@
+{
+    "amazon": {
+      "url": "https://www.amazon.com.mx/",
+      "actions": [
+        {
+          "action": "send_keys",
+          "selector": "//input[@name='field-keywords']",
+          "value": "iphone"
+        },
+        {
+          "action": "click",
+          "selector": "//input[@type='submit']"
+        }
+      ],
+      "fields": {
+        "name": "//h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-4']",
+        "price": "//span[@class='a-price-whole']",
+        "link": "//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']"
+      },
+      "pagination": {
+        "next_button_selector": "//a[@class='s-pagination-item s-pagination-next s-pagination-button s-pagination-separator']"
+      },
+      "max_pages": 2
+    }
+  }
+  
