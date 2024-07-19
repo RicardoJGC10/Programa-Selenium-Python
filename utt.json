@@ -1,48 +1,40 @@
 {
-    "uttorreon": {
-      "url": "https://uttorreon.mx/",
-      "actions": [
-        {
-          "action": "slow_type",
-          "selector": "//input[@name='email']",
-          "value": "rikiteach_@hotmail.com",
-          "delay": 0.2
-        },
-        {
-          "action": "slow_type",
-          "selector": "//input[@name='password']",
-          "value": "GACR900730HCLRSC09",
-          "delay": 0.2
-        },
-        {
-          "action": "click",
-          "selector": "//button[@type='submit']"
-        },
-        {
-          "action": "click",
-          "selector": "//li[@class='xn-openable']"
-        },
-        {
-          "action": "click",
-          "selector": "//li[@class='xn-openable']"
-        },
-        {
-          "action": "click",
-          "selector": "//a[@href='https://uttorreon.mx/20170096/AreaAlumno/EstadoAcademico']"
-        },
-        {
-          "action": "click",
-          "selector": "//a[@href='#TabConsultar']"
-        },
-        {
-          "action": "click",
-          "selector": "//a[@href='#TabConsultarCalificaciones']"
-        }
-      ],
-      "tables": {
-        "table1": "//*[@id='Tabla']/tbody",
-        "table2": "//*[@id='TablaHistorico']/tbody"
+  "uttorreon": {
+    "url": "https://uttorreon.mx/",
+    "actions": [
+      {
+        "action": "slow_type",
+        "selector": "//input[@name='email']",
+        "value": "rikiteach_@hotmail.com",
+        "delay": 0.2
+      },
+      {
+        "action": "slow_type",
+        "selector": "//input[@name='password']",
+        "value": "GACR900730HCLRSC09",
+        "delay": 0.2
+      },
+      {
+        "action": "click",
+        "selector": "//button[@type='submit']"
+      },
+      {
+        "action": "click",
+        "selector": "//li[@class='xn-openable']"
+      },
+      {
+        "action": "click",
+        "selector": "//li[@class='xn-openable']"
+      },
+      {
+        "action": "click",
+        "selector": "//a[@href='https://uttorreon.mx/20170096/AreaAlumno/EstadoAcademico']"
+      },
+      {
+        "action": "click",
+        "selector": "//a[@href='#TabConsultar']"
       }
-    }
+    ],
+    "table_selector": "//*[@id='Tabla']/tbody"
   }
-  
+}

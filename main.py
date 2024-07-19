@@ -1,7 +1,7 @@
 import json
 from WikipediaScraper import WikipediaScraper
 from AmazonScraper import AmazonScraper
-from UTTorreonScraper import UTTorreonScraper
+from UTTorreonScraper import WebScraper
 
 def print_menu():
     print("Seleccione una opción:")
@@ -17,15 +17,18 @@ def main():
 
         if option == "1":
             scraper = WikipediaScraper('wikipedia.json')
-            scraper.scrape_data('wikipedia_data.xlsx')
+            data = scraper.scrape_data()  # Llamada sin parámetros
+            scraper.export_to_excel(data, 'wikipedia_data.xlsx')  # Exportar datos
             scraper.close_driver()
         elif option == "2":
             scraper = AmazonScraper('amazon.json')
-            scraper.scrape_data('Amazon.xlsx')
+            data = scraper.scrape_data()  # Llamada sin parámetros
+            scraper.export_to_excel(data, 'Amazon.xlsx')  # Exportar datos
             scraper.close_driver()
         elif option == "3":
-            scraper = UTTorreonScraper('utt.json')
-            scraper.scrape_data('UTT.xlsx')
+            scraper = WebScraper('utt.json')
+            data = scraper.scrape_data()  # Llamada sin parámetros
+            scraper.export_to_excel(data, 'UTT.xlsx')  # Exportar datos
             scraper.close_driver()
         elif option == "0":
             print("Saliendo del programa...")

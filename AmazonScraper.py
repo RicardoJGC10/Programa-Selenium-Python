@@ -23,7 +23,7 @@ class AmazonScraper:
         opts.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36")
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
 
-    def scrape_data(self, output_file):
+    def scrape_data(self):
         self.driver.get(self.site_config["url"])
         self.driver.maximize_window()
 
@@ -57,9 +57,13 @@ class AmazonScraper:
             except Exception as e:
                 print(f"No se pudo encontrar el botón de siguiente página en la página {i+1}: {e}")
                 break
+        
+        return data  # Devolver los datos en lugar de exportar directamente
 
+    def export_to_excel(self, data, output_file):
         df = pd.DataFrame(data)
-        df.to_excel(output_file, index=False)  # Exportar al archivo especificado
+        df.to_excel(output_file, index=False)
+        print(f"Data exported to {output_file}")
 
     def close_driver(self):
         self.driver.quit()
@@ -67,5 +71,6 @@ class AmazonScraper:
 # Ejemplo de uso:
 if __name__ == "__main__":
     scraper = AmazonScraper('amazon.json')
-    scraper.scrape_data('Amazon.xlsx')  # Especifica el nombre del archivo de salida
+    data = scraper.scrape_data()  # Obtener los datos
+    scraper.export_to_excel(data, 'Amazon.xlsx')  # Exportar los datos
     scraper.close_driver()
