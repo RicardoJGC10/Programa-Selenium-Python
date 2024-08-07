@@ -2,9 +2,11 @@ import json
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+
+
 import pandas as pd
 
 class AmazonScraper:
@@ -20,8 +22,10 @@ class AmazonScraper:
 
     def setup_driver(self):
         opts = Options()
+        opts.add_argument("--headless")  # Ejecutar Chrome en modo headless
         opts.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36")
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
+        self.driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+
 
     def scrape_data(self):
         self.driver.get(self.site_config["url"])
